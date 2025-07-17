@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Iniciar sesión - Voluntariado Conectado RD";
+}
+
+<div class="login-bg d-flex align-items-center justify-content-center" style="min-height:100vh; background: linear-gradient(135deg, #0d6efd 0%, #dc3545 100%);">
+    <div class="login-card card shadow-lg p-4 d-flex flex-row align-items-center" style="max-width: 800px; border-radius: 18px; margin-botton:40px; margin-top: 140px;">
+        <div class="login-form col-md-6 p-4">
+            <div class="mb-4">
+                <div class="fw-bold text-uppercase" style="font-size: 0.9rem; margin-top: -0.5rem;">Por un país unido a la causa</div>
+            </div>
+            <form method="post" autocomplete="off">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu correo" required />
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required />
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="remember" name="remember" />
+                        <label class="form-check-label" for="remember">Recordarme</label>
+                    </div>
+                    <a href="#" class="small">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mb-2" asp-action="Profile">Iniciar sesión</button>
+                <button type="button" class="btn btn-outline-secondary w-100 mb-2" onclick="location.href='/signin-google'">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" style="width:20px; margin-right:8px;"> Iniciar sesión con Google
+                </button>
+                <div class="text-center mt-2">
+                    <span class="text-muted">¿No tienes cuenta?</span> <a href="/Home/Registro">Regístrate aquí</a>
+                </div>
+            </form>
+        </div>
+        <div class="login-image col-md-6 d-none d-md-block p-3">
+            <img src="~/images/voluntarios.png" alt="Voluntarios" class="img-fluid rounded-3 shadow" style="max-height:340px; object-fit:cover;" />
+        </div>
+    </div>
+</div>

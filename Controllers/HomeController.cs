@@ -4,6 +4,8 @@ using VoluntariosConectadosRD.Models;
 
 namespace VoluntariosConectadosRD.Controllers
 {
+
+    //Prueba del docente Omar
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

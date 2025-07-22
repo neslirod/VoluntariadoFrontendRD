@@ -80,8 +80,13 @@ body {
     position: relative;
 }
 
-.text-danger,
-.text-primary {
+.rd-danger {
+    color: #dc3545 !important; 
+    font-size: 3.9rem !important;
+}
+
+.rd-primary {
+    color: #0d6efd !important;
     font-size: 3.9rem !important;
 }
 

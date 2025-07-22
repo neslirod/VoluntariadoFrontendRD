@@ -19,7 +19,7 @@
                 <div class="text-start me-2">
                     <strong class="d-block text-uppercase fw-bold" style="font-size: 1.1rem; text-align:right;">Voluntariado<br />Conectado</strong>
                 </div>
-                <span class="fw-bold text-danger" style="font-size: 9.8em;">R</span><span class="fw-bold text-primary" style="font-size: 9.8em;">D</span>
+                <span class="fw-bold rd-danger" style="font-size: 9.8em;">R</span><span class="fw-bold rd-primary" style="font-size: 9.8em;">D</span>
                 </a>
             </div>
             <nav class="dashboard-nav flex-grow-1 d-flex justify-content-between ms-4 align-items-center" style="margin-right: 20px;">
@@ -45,7 +45,7 @@
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" asp-action="Profile">Mi perfil</a></li>
-                        <li><a class="dropdown-item" asp-action="Login">Cerrar sesión</a></li>
+                        <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Cerrar sesión</a></li>
                     </ul>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                     <ul class="list-unstyled">
                         <li><a href="/Home/Index" class="text-light text-decoration-none">Inicio</a></li>
                         <li><a href="#como-funciona" class="text-light text-decoration-none">¿Cómo funciona?</a></li>
-                        <li><a href="/Home/Registro" class="text-light text-decoration-none">Registro</a></li>
+                        <li><a href="/Account/Registro" class="text-light text-decoration-none">Registro</a></li>
                         <li><a href="#contacto" class="text-light text-decoration-none">Contacto</a></li>
                     </ul>
                 </div>

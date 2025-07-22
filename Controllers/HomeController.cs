@@ -20,40 +20,6 @@ namespace VoluntariosConectadosRD.Controllers
             return View();
         }
 
-        // NUEVAS ACCIONES PARA NAVEGACIÓN
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult Registro()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult RegistroONG()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult RegistroExito()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult RegistroONG(string nombre, string email, string rnc,string telefono, string direccion, string ciudad, string provincia, string sector, string descripcion, string logoONGURL)
-        {
-            // TODO: Handle form data, save to DB, etc.
-            // Redirect to success page after processing
-            return RedirectToAction("RegistroExito");
-        }
-
         public IActionResult Privacy()
         {
             return View();

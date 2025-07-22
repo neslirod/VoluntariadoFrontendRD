@@ -23,7 +23,7 @@ namespace VoluntariosConectadosRD.Controllers
         {
             if (ModelState.IsValid)
             {
-                return RedirectToAction("Profile", "Home");
+                return RedirectToAction("Profile", "Dashboard");
             }
             return View(model);
         }

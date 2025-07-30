@@ -30,10 +30,6 @@ namespace VoluntariosConectadosRD.Models
         [Compare("Password", ErrorMessage = "Las contraseñas no coinciden")]
         public string? Confirmar { get; set; }
 
-        [Required(ErrorMessage = "El representante es obligatorio")]
-        [StringLength(20, ErrorMessage = "El nombre no puede pasar de 20 caracteres")]
-        public string? Representante { get; set; }
-
         public string? Direccion { get; set; }
         public string? Ciudad { get; set; }
         public string? Provincia { get; set; }

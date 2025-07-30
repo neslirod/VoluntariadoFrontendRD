@@ -486,7 +486,7 @@ section {
 /* Privacy Page */
 .privacy-bg {
     min-height: 100vh;
-    background: linear-gradient(135deg, #7db9e8 0%, #4a90e2 100%);
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 10%, #0369a1 20%, #075985 30%, #1e40af 45%, #3730a3 60%, #581c87 75%, #7c3aed 90%, #9333ea 100%);
     display: flex;
     align-items: center;
     justify-content: center;

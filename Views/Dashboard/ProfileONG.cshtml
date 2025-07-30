@@ -23,6 +23,14 @@
                     </div>
                 </div>
                 
+                <!-- Reportes Button - Moved below organization info -->
+                <div class="d-flex justify-content-end mb-3">
+                    <button class="btn btn-primary btn-lg reportes-btn" style="border-radius: 12px; padding: 15px 30px; font-weight: 600; font-size: 1.1rem; box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3); transition: all 0.3s ease; text-decoration: none; border: none; background: linear-gradient(135deg, #0d6efd, #0b5ed7);" disabled>
+                        <i class="bi bi-graph-up me-2"></i>
+                        Ver Reportes
+                    </button>
+                </div>
+                
                 <!-- Key Metrics Cards -->
                 <div class="row g-3">
                     <div class="col-md-3 col-6">
@@ -505,38 +513,36 @@
     align-items: center !important;
 }
 
-/* Responsive Design */
-@@media (max-width: 768px) {
-    .metric-card {
-        padding: 15px;
-        gap: 10px;
-    }
-    
-    .metric-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
-    
-    .metric-number {
-        font-size: 1.4rem;
-    }
-    
-    .pie-chart-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .event-table {
-        font-size: 0.75rem;
-    }
-    
-    .event-table .bi {
-        font-size: 1rem;
-        width: 1rem;
-        height: 1rem;
-    }
+
+
+/* Reportes Button Styles */
+.reportes-btn {
+    font-size: 1.1rem !important;
+    padding: 15px 30px !important;
+    cursor: default !important;
 }
+.reportes-btn:hover {
+    transform: none !important;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3) !important;
+    background: linear-gradient(135deg, #0d6efd, #0b5ed7) !important;
+}
+.reportes-btn:active {
+    transform: none !important;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3) !important;
+}
+.reportes-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed !important;
+    background: linear-gradient(135deg, #6c757d, #5a6268) !important;
+    border: none !important;
+}
+.reportes-btn:disabled:hover {
+    transform: none !important;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3) !important;
+    background: linear-gradient(135deg, #6c757d, #5a6268) !important;
+}
+
+/* media queries moved to site.css */
 </style>
 
 <!-- Bootstrap Icons CDN -->

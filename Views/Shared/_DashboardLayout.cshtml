@@ -13,7 +13,7 @@
 </head>
 <body>
     <header class="dashboard-header shadow-sm bg-white">
-        <div class="container-fluid d-flex align-items-center justify-content-between py-2 px-4">
+        <div class="container-fluid d-flex align-items-center py-2 px-4">
             <div class="d-flex align-items-center flex-shrink-0">
                 <a class="navbar-brand d-flex align-items-center" style="text-decoration: none; color: inherit;" href="/">
                 <div class="text-start me-2">
@@ -22,12 +22,13 @@
                 <span class="fw-bold rd-danger" style="font-size: 9.8em;">R</span><span class="fw-bold rd-primary" style="font-size: 9.8em;">D</span>
                 </a>
             </div>
-            <nav class="dashboard-nav flex-grow-1 d-flex justify-content-between ms-4 align-items-center" style="margin-right: 20px;">
-                    <a href="#" class="dashboard-tab active">Inicio</a>
-                    <a href="#" class="dashboard-tab">Reportes</a>
-                    <a href="#" class="dashboard-tab">Voluntarios</a>
-                    <a href="#" class="dashboard-tab">Eventos</a>
-            </nav>
+            <div class="flex-grow-1 d-flex justify-content-end">
+                <nav class="dashboard-nav d-flex align-items-center" style="margin-right: 20px;">
+                        <a href="/Dashboard/ProfileONG" class="dashboard-tab @(ViewContext.RouteData.Values["Action"]?.ToString() == "ProfileONG" ? "active" : "")">Inicio</a>
+                        <a href="#" class="dashboard-tab @(ViewContext.RouteData.Values["Action"]?.ToString() == "VolunteerStats" ? "active" : "")">Voluntarios</a>
+                        <a href="/Dashboard/Reportes" class="dashboard-tab @(ViewContext.RouteData.Values["Action"]?.ToString() == "Reportes" ? "active" : "")">Registro de Impacto</a>
+                </nav>
+            </div>
             <div class="d-flex align-items-center gap-3 flex-shrink-0">
                 <button class="btn btn-link p-0 position-relative" title="Notificaciones">
                     <i class="bi bi-bell" style="font-size: 1.6rem; color: #0d6efd;"></i>

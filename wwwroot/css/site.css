@@ -537,56 +537,72 @@ section {
     color: #fff;
 }
 
-/* Responsive Design */
+/* ========== 响应式样式统一 ========== */
+@media (max-width: 1200px) {
+    .calendar-day { min-height: 80px; }
+    .event-block { font-size: 0.75rem; }
+}
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .cta-title {
-        font-size: 2rem;
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .feature-card,
-    .benefit-card {
-        margin-bottom: 2rem;
-    }
+    /* Profile.cshtml */
+    .dashboard-title { font-size: 1.3rem; padding: 10px 10px; }
+    .calendar-day { min-height: 60px; padding: 4px; }
+    .event-block { font-size: 0.7rem; padding: 4px 6px; }
+    .date-number { font-size: 0.8rem; }
+    /* Reportes.cshtml */
+    .volunteers-table { font-size: 0.8rem; }
+    .volunteers-table th,
+    .volunteers-table td { padding: 12px 8px; }
+    .d-flex.justify-content-between.align-items-center { flex-direction: column; align-items: flex-start !important; gap: 1rem; }
+    .d-flex.align-items-center.gap-3 { width: 100%; }
+    .form-control { width: 100%; }
+    /* ProfileONG.cshtml */
+    .metric-card { padding: 15px; gap: 10px; }
+    .metric-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+    .metric-number { font-size: 1.4rem; }
+    .pie-chart-container { flex-direction: column; text-align: center; }
+    .event-table { font-size: 0.75rem; }
+    .event-table .bi { font-size: 1rem; width: 1rem; height: 1rem; }
+    .reportes-btn { width: 100%; justify-content: center; font-size: 1rem !important; padding: 12px 24px !important; }
+    /* Privacy.cshtml */
+    .privacy-card { padding: 24px 8px; }
+    .privacy-title { font-size: 1.3rem; }
+}
+@media (max-width: 600px) {
+    .privacy-card { padding: 24px 8px; }
+    .privacy-title { font-size: 1.3rem; }
 }
 
-@media (max-width: 576px) {
-    .hero-title {
-        font-size: 2rem;
+/* ========== VolunteerStats 响应式样式 ========== */
+@media (max-width: 768px) {
+    .chart-card {
+        padding: 20px;
     }
     
-    .hero-content {
-        padding: 1rem;
+    .chart-bars {
+        height: 150px;
     }
     
-    section {
-        padding: 3rem 0;
+    .chart-bar {
+        width: 40px;
     }
     
-    .feature-card,
-    .benefit-card {
-        padding: 1.5rem;
+    .kpi-card {
+        padding: 15px;
+        height: 80px;
+    }
+    
+    .kpi-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .kpi-number {
+        font-size: 1.4rem;
+    }
+    
+    .kpi-label {
+        font-size: 0.7rem;
     }
 }
 

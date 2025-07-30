@@ -13,5 +13,15 @@ namespace VoluntariosConectadosRD.Controllers
         {
             return View();
         }
+        public IActionResult Reportes()
+        {
+            return View();
+        }
+
+        public IActionResult VolunteerStats(int id)
+        {
+            ViewData["VolunteerId"] = id;
+            return View();
+        }
     }
 }

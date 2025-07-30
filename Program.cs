@@ -1,13 +1,29 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using VoluntariosConectadosRD.Services;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Agregar servicios al contenedor.
 builder.Services.AddControllersWithViews();
 
-//lo mismo para todas las llaves de la cookie
+// Agregar soporte de sesión
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+// Agregar cliente HTTP
+builder.Services.AddHttpClient();
+
+// Agregar servicios de API
+builder.Services.AddScoped<IBaseApiService, BaseApiService>();
+builder.Services.AddScoped<IAccountApiService, AccountApiService>();
+
+// Configuración JWT para autenticación
 var jwtSettings = builder.Configuration.GetSection("JWT");
 var key = Encoding.UTF8.GetBytes(jwtSettings["Key"] ?? "JW|fK>j1?HAG7&>o{=lA6Sz,X|/Y%tZ),-f&:Vyz+hQfJu'~:A}%nz|KY_s9ymh");
 
@@ -28,11 +44,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configurar el pipeline de solicitudes HTTP.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    // El valor HSTS predeterminado es 30 días. Puede cambiar esto para escenarios de producción, vea https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -40,6 +56,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();

@@ -1,4 +1,7 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using VoluntariosConectadosRD.Services;
 
 namespace VoluntariosConectadosRD.Controllers
@@ -30,23 +33,30 @@ namespace VoluntariosConectadosRD.Controllers
             {
                 try
                 {
-                    // Intentar llamar a la API primero
-                    var response = await _accountApiService.LoginAsync(model);
                     
+                    var response = await _accountApiService.LoginAsync(model);
+
                     if (response?.Success == true && response.Data != null)
                     {
-                        // Almacenar token en sesión/cookie
                         HttpContext.Session.SetString("JWTToken", response.Data.Token);
                         HttpContext.Session.SetString("UserInfo", System.Text.Json.JsonSerializer.Serialize(response.Data.User));
-                        
-                        return RedirectToAction("Profile", "Dashboard");
+
+                        var role = response.Data.User.Role; 
+                        var claims = new List<Claim>
+    {
+        new Claim(ClaimTypes.Name, response.Data.User.Username),
+        new Claim(ClaimTypes.Role, role)
+    };
+                        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        var principal = new ClaimsPrincipal(identity);
+                        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                        if (role == "ONG")
+                            return RedirectToAction("ProfileONG", "Dashboard");
+                        else
+                            return RedirectToAction("Profile", "Dashboard");
                     }
-                    else
-                    {
-                        // Si la API falla, volver al comportamiento actual
-                        _logger.LogWarning("El login de la API falló, volviendo al flujo de trabajo actual");
-                        return RedirectToAction("Profile", "Dashboard");
-                    }
+
                 }
                 catch (Exception ex)
                 {

@@ -28,9 +28,29 @@
 
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/Home/Index">Inicio</a>
-                    </li>
+                    @{
+                        var userRole = Context.Session.GetString("UserRole");
+                    }
+
+                    @if (userRole == "ONG")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" asp-controller="Dashboard" asp-action="ProfileONG">Inicio ONG</a>
+                        </li>
+                    }
+                    else if (userRole == "Voluntario")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" asp-controller="Dashboard" asp-action="Profile">Inicio Usuario</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" asp-controller="Home" asp-action="Index">Inicio</a>
+                        </li>
+                    }
+
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="/Home/ComoFunciona">¿Cómo funciona?</a>
                     </li>

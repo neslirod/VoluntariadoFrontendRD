@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Ver Conexiones";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center mb-4">Conexiones de Voluntariados</h1>
+
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre del Voluntariado</th>
+                <th>Organización</th>
+                <th>Fecha de Inicio</th>
+                <th>Fecha de Fin</th>
+                <th>Ubicación</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @* Ejemplo de datos quemados temporalmente *@
+            <tr>
+                <td>Apoyo Escolar</td>
+                <td>Fundación Luz</td>
+                <td>01/09/2025</td>
+                <td>30/11/2025</td>
+                <td>Santo Domingo</td>
+                <td><span class="badge bg-success">Activo</span></td>
+                <td>
+                    <a href="#" class="btn btn-sm btn-info">Ver</a>
+                    <a href="#" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+            @* Aquí van los datos dinámicos cuando esté conectado al controlador *@
+        </tbody>
+    </table>
+</div>
